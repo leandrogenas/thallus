@@ -45,9 +45,9 @@ new Zdog.Dragger({
     },
     onDragMove: function (pointer, moveX, moveY) {
         if (illoOption.isDragRotate) {
-            let displaySize = Math.min(illo.element.width as number, illo.element.height as number)
-            let moveRY = moveX / displaySize * Zdog.TAU
-            let moveRX = moveY / displaySize * Zdog.TAU
+            const displaySize = Math.min(illo.element.width as number, illo.element.height as number)
+            const moveRY = moveX / displaySize * Zdog.TAU
+            const moveRX = moveY / displaySize * Zdog.TAU
             illoAnchor.rotate.x = dragStartX - moveRX
             illoAnchor.rotate.y = dragStartY - moveRY
         } else {
@@ -59,8 +59,8 @@ new Zdog.Dragger({
 })
 
 illo.element.addEventListener("wheel", (e: any) => {
-  let rate = illo.zoom / 20
-  let zoom = illo.zoom - (e.deltaY > 0 ? 1 : -1) * rate
+  const rate = illo.zoom / 20
+  const zoom = illo.zoom - (e.deltaY > 0 ? 1 : -1) * rate
   if (zoom > illoOption.maxZoom) zoom = illoOption.maxZoom
   if (zoom < illoOption.minZoom) zoom = illoOption.minZoom
   illo.zoom = zoom
